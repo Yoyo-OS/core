@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CutefishOS Team.
+ * Copyright (C) 2021 YoyoOS Team.
  *
  * Author:     rekols <rekols@foxmail.com>
  *
@@ -77,7 +77,7 @@ int BrightnessManager::brightness()
 void BrightnessManager::setValue(int value)
 {
     QProcess process;
-    process.start("pkexec", QStringList() << "cutefish-screen-brightness" << "--set" << QString::number(value));
+    process.start("pkexec", QStringList() << "yoyo-screen-brightness" << "--set" << QString::number(value));
     process.waitForFinished(-1);
 }
 

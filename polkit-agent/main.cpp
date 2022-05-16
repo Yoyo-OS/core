@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CutefishOS Team.
+ * Copyright (C) 2021 YoyoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 
     // Translations
     QLocale locale;
-    QString qmFilePath = QString("%1/%2.qm").arg("/usr/share/cutefish-polkit-agent/translations/").arg(locale.name());
+    QString qmFilePath = QString("%1/%2.qm").arg("/usr/share/yoyo-polkit-agent/translations/").arg(locale.name());
     if (QFile::exists(qmFilePath)) {
         QTranslator *translator = new QTranslator(QGuiApplication::instance());
         if (translator->load(qmFilePath)) {
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
     PolKitAgentListener listener;
     PolkitQt1::UnixSessionSubject session(getpid());
 
-    if (!listener.registerListener(session, QStringLiteral("/com/cutefish/PolicyKit1/AuthenticationAgent")))
+    if (!listener.registerListener(session, QStringLiteral("/com/yoyo/PolicyKit1/AuthenticationAgent")))
         return -1;
 
     return app.exec();

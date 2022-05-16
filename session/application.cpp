@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CutefishOS Team.
+ * Copyright (C) 2021 YoyoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -90,11 +90,11 @@ Application::Application(int &argc, char **argv)
     new SessionAdaptor(this);
 
     // connect to D-Bus and register as an object:
-    QDBusConnection::sessionBus().registerService(QStringLiteral("com.cutefish.Session"));
+    QDBusConnection::sessionBus().registerService(QStringLiteral("com.yoyo.Session"));
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/Session"), this);
 
     QCommandLineParser parser;
-    parser.setApplicationDescription(QStringLiteral("Cutefish Session"));
+    parser.setApplicationDescription(QStringLiteral("Yoyo Session"));
     parser.addHelpOption();
 
     QCommandLineOption waylandOption(QStringList() << "w" << "wayland" << "Wayland Mode");
@@ -174,13 +174,13 @@ void Application::initEnvironments()
         qputenv("XDG_CONFIG_DIRS", "/etc/xdg");
 
     // Environment
-    qputenv("DESKTOP_SESSION", "Cutefish");
-    qputenv("XDG_CURRENT_DESKTOP", "Cutefish");
-    qputenv("XDG_SESSION_DESKTOP", "Cutefish");
+    qputenv("DESKTOP_SESSION", "Yoyo");
+    qputenv("XDG_CURRENT_DESKTOP", "Yoyo");
+    qputenv("XDG_SESSION_DESKTOP", "Yoyo");
 
     // Qt
-    qputenv("QT_QPA_PLATFORMTHEME", "cutefish");
-    qputenv("QT_PLATFORM_PLUGIN", "cutefish");
+    qputenv("QT_QPA_PLATFORMTHEME", "yoyo");
+    qputenv("QT_PLATFORM_PLUGIN", "yoyo");
     
     // ref: https://stackoverflow.com/questions/34399993/qml-performance-issue-when-updating-an-item-in-presence-of-many-non-overlapping
     qputenv("QT_QPA_UPDATE_IDLE_TIME", "10");
@@ -197,7 +197,7 @@ void Application::initEnvironments()
 
 void Application::initLanguage()
 {
-    QSettings settings(QSettings::UserScope, "cutefishos", "language");
+    QSettings settings(QSettings::UserScope, "yoyoos", "language");
     QString value = settings.value("language", "").toString();
 
     // Init Language
@@ -243,7 +243,7 @@ void Application::initLanguage()
 
 void Application::initScreenScaleFactors()
 {
-    QSettings settings(QSettings::UserScope, "cutefishos", "theme");
+    QSettings settings(QSettings::UserScope, "yoyoos", "theme");
     qreal scaleFactor = settings.value("PixelRatio", 1.0).toReal();
 
     qputenv("QT_SCREEN_SCALE_FACTORS", QByteArray::number(scaleFactor));
@@ -260,7 +260,7 @@ void Application::initScreenScaleFactors()
 
 void Application::initXResource()
 {
-    QSettings settings(QSettings::UserScope, "cutefishos", "theme");
+    QSettings settings(QSettings::UserScope, "yoyoos", "theme");
     qreal scaleFactor = settings.value("PixelRatio", 1.0).toReal();
     int fontDpi = 96 * scaleFactor;
     QString cursorTheme = settings.value("CursorTheme", "default").toString();
@@ -287,8 +287,8 @@ void Application::initXResource()
     p.closeWriteChannel();
     p.waitForFinished(-1);
 
-    // For cutefish-wine
-    qputenv("CUTEFISH_FONT_DPI", QByteArray::number(fontDpi));
+    // For yoyo-wine
+    qputenv("YOYO_FONT_DPI", QByteArray::number(fontDpi));
 
     // Init cursor
     runSync("cupdatecursor", {cursorTheme, QString::number(cursorSize)});
@@ -317,7 +317,7 @@ void Application::initKWinConfig()
     settings.setValue("BorderSize", "Normal");
     settings.setValue("ButtonsOnLeft", "");
     settings.setValue("ButtonsOnRight", "HIAX");
-    settings.setValue("library", "org.cutefish.decoration");
+    settings.setValue("library", "org.yoyo.decoration");
     settings.setValue("theme", "");
     settings.endGroup();
 }
@@ -336,7 +336,7 @@ bool Application::syncDBusEnvironment()
 
 // Import systemd user environment.
 // Systemd read ~/.config/environment.d which applies to all systemd user unit.
-// But it won't work if cutefishDE is not started by systemd.
+// But it won't work if yoyoDE is not started by systemd.
 void Application::importSystemdEnvrionment()
 {
     auto environment = getSystemdEnvironment();
@@ -369,9 +369,9 @@ void Application::createConfigDirectory()
 
 void Application::updateUserDirs()
 {
-    // bool isCutefishOS = QFile::exists("/etc/cutefishos");
+    // bool isYoyoOS = QFile::exists("/etc/yoyoos");
 
-    // if (!isCutefishOS)
+    // if (!isYoyoOS)
     //     return;
 
     // QProcess p;

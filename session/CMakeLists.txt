@@ -1,5 +1,5 @@
-project(cutefish-session)
-set(TARGET cutefish-session)
+project(yoyo-session)
+set(TARGET yoyo-session)
 
 set(SOURCES
     application.cpp
@@ -13,7 +13,7 @@ set(SOURCES
 )
 
 qt5_add_dbus_adaptor(DBUS_SOURCES
-                     com.cutefish.Session.xml
+                     com.yoyo.Session.xml
                      application.h Application
                      sessionadaptor SessionAdaptor)
 set_source_files_properties(${DBUS_SOURCES} PROPERTIES SKIP_AUTOGEN ON)
@@ -32,4 +32,4 @@ target_link_libraries(${TARGET}
 )
 
 install(TARGETS ${TARGET} DESTINATION ${CMAKE_INSTALL_BINDIR})
-install(FILES cutefish-xsession.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/xsessions/)
+install(FILES yoyo-xsession.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/xsessions/)

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CutefishOS Team.
+ * Copyright (C) 2021 YoyoOS Team.
  *
  * Author:     Reion Wong <reion@cutefishos.com>
  *
@@ -26,7 +26,7 @@
 
 NetworkProxyManager::NetworkProxyManager(QObject *parent)
     : QObject(parent)
-    , m_settings(QSettings::UserScope, "cutefishos", "network")
+    , m_settings(QSettings::UserScope, "yoyoos", "network")
 {
 }
 

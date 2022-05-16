@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CutefishOS Team.
+ * Copyright (C) 2021 YoyoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -51,7 +51,7 @@ Application::Application(int &argc, char **argv)
 
     new DBusAdaptor(this);
     // connect to D-Bus and register as an object:
-    QDBusConnection::sessionBus().registerService(QStringLiteral("com.cutefish.Settings"));
+    QDBusConnection::sessionBus().registerService(QStringLiteral("com.yoyo.Settings"));
 
 //    m_kwinTimer->setSingleShot(false);
 //    m_kwinTimer->setInterval(50);
@@ -60,7 +60,7 @@ Application::Application(int &argc, char **argv)
 
     // Translations
     QLocale locale;
-    QString qmFilePath = QString("%1/%2.qm").arg("/usr/share/cutefish-settings-daemon/translations/").arg(locale.name());
+    QString qmFilePath = QString("%1/%2.qm").arg("/usr/share/yoyo-settings-daemon/translations/").arg(locale.name());
     if (QFile::exists(qmFilePath)) {
         QTranslator *translator = new QTranslator(QApplication::instance());
         if (translator->load(qmFilePath)) {
@@ -76,7 +76,7 @@ Application::Application(int &argc, char **argv)
 void Application::invokeDesktopProcess()
 {
     // Start desktop UI component.
-    QDBusInterface sessionInterface("com.cutefish.Session", "/Session", "com.cutefish.Session",
+    QDBusInterface sessionInterface("com.yoyo.Session", "/Session", "com.yoyo.Session",
                                     QDBusConnection::sessionBus());
 
     if (sessionInterface.isValid()) {
@@ -130,9 +130,9 @@ void Application::initTrash()
 //        effect.call("unloadEffect", "kwin4_effect_translucency");
 //        effect.call("unloadEffect", "magiclamp");
 
-//        effect.call("loadEffect", "cutefish_popups");
-//        effect.call("loadEffect", "cutefish_scale");
-//        effect.call("loadEffect", "cutefish_squash");
+//        effect.call("loadEffect", "yoyo_popups");
+//        effect.call("loadEffect", "yoyo_scale");
+//        effect.call("loadEffect", "yoyo_squash");
 
 //        m_kwinTimer->stop();
 //    }

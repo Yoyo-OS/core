@@ -5,4 +5,4 @@
 
 #include "debug.h"
 
-Q_LOGGING_CATEGORY(SNIPROXY, "com.cutefish.sniproxy", QtWarningMsg)
+Q_LOGGING_CATEGORY(SNIPROXY, "com.yoyo.sniproxy", QtWarningMsg)

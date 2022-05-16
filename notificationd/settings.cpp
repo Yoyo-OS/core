@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CutefishOS Team.
+ * Copyright (C) 2021 YoyoOS Team.
  *
  * Author:     Kate Leet <kateleet@cutefishos.com>
  *
@@ -27,7 +27,7 @@ Settings *Settings::self()
 
 Settings::Settings(QObject *parent)
     : QObject(parent)
-    , m_settings(QSettings::UserScope, "cutefishos", "notification")
+    , m_settings(QSettings::UserScope, "yoyoos", "notification")
 {
     m_doNotDisturb = m_settings.value("DoNotDisturb", false).toBool();
 }

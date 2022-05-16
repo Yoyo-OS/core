@@ -50,7 +50,7 @@ void Battery::init()
         new PrimaryBatteryAdaptor(this);
         QDBusConnection::sessionBus().registerObject(QStringLiteral("/PrimaryBattery"), this);
 
-        m_settings = new QSettings(QStringLiteral("cutefishos"), QStringLiteral("PrimaryBattery"));
+        m_settings = new QSettings(QStringLiteral("yoyoos"), QStringLiteral("PrimaryBattery"));
         m_lastChargedPercent = m_settings->value("LastChargedPercent", 0).toInt();
         m_lastChargedSecs = m_settings->value("LastChargedSecs").toLongLong();
     }

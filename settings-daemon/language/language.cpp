@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CutefishOS Team.
+ * Copyright (C) 2021 YoyoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -32,7 +32,7 @@ Language *Language::self()
 
 Language::Language(QObject *parent)
     : QObject(parent)
-    , m_settings(new QSettings(QStringLiteral("cutefishos"), QStringLiteral("language")))
+    , m_settings(new QSettings(QStringLiteral("yoyoos"), QStringLiteral("language")))
 {
     new LanguageAdaptor(this);
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/Language"), this);
@@ -54,7 +54,7 @@ void Language::setLanguage(const QString &code)
         return;
     }
 
-    QSettings settings(QStringLiteral("cutefishos"), QStringLiteral("theme"));
+    QSettings settings(QStringLiteral("yoyoos"), QStringLiteral("theme"));
 
     // Change fonts
     if (code == "zh_CN") {
@@ -78,7 +78,7 @@ void Language::setLanguage(const QString &code)
                          QDBusConnection::sessionBus());
     if (iface.isValid()) {
         QList<QVariant> args;
-        args << "cutefish-settings";
+        args << "yoyo-settings";
         args << ((unsigned int) 0);
         args << "preferences-system";
         args << "";

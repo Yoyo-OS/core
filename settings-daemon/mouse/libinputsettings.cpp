@@ -11,21 +11,21 @@
 template<>
 bool LibinputSettings::load(QString key, bool defVal)
 {
-    QSettings settings("cutefishos", "mouse");
+    QSettings settings("yoyoos", "mouse");
     return settings.value(key, defVal).toBool();
 }
 
 template<>
 qreal LibinputSettings::load(QString key, qreal defVal)
 {
-    QSettings settings("cutefishos", "mouse");
+    QSettings settings("yoyoos", "mouse");
     return settings.value(key, defVal).toReal();
 }
 
 template<>
 void LibinputSettings::save(QString key, bool val)
 {
-    QSettings settings("cutefishos", "mouse");
+    QSettings settings("yoyoos", "mouse");
     settings.setValue(key, val);
     settings.sync();
 }
@@ -33,7 +33,7 @@ void LibinputSettings::save(QString key, bool val)
 template<>
 void LibinputSettings::save(QString key, qreal val)
 {
-    QSettings settings("cutefishos", "mouse");
+    QSettings settings("yoyoos", "mouse");
     settings.setValue(key, val);
     settings.sync();
 }

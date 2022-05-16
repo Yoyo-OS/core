@@ -9,14 +9,14 @@ include_directories(
     "${POLKITQT-1_INCLUDE_DIR}"
 )
 
-add_executable(cutefish-polkit-agent
+add_executable(yoyo-polkit-agent
     main.cpp
     polkitagentlistener.cpp
     dialog.cpp
     qml.qrc
 )
 
-target_link_libraries(cutefish-polkit-agent
+target_link_libraries(yoyo-polkit-agent
         Qt5::Core
         Qt5::Widgets
         Qt5::Quick
@@ -32,17 +32,17 @@ target_link_libraries(cutefish-polkit-agent
 file(GLOB TS_FILES translations/*.ts)
 qt5_create_translation(QM_FILES ${TS_FILES})
 add_custom_target(polkit-agent-translations DEPENDS ${QM_FILES} SOURCES ${TS_FILES})
-add_dependencies(cutefish-polkit-agent polkit-agent-translations)
+add_dependencies(yoyo-polkit-agent polkit-agent-translations)
 
-install(TARGETS cutefish-polkit-agent
+install(TARGETS yoyo-polkit-agent
     DESTINATION ${CMAKE_INSTALL_BINDIR}
     COMPONENT Runtime
 )
 
 install(FILES
-cutefish-polkit-agent.desktop
+yoyo-polkit-agent.desktop
     DESTINATION "${CMAKE_INSTALL_FULL_SYSCONFDIR}/xdg/autostart"
     COMPONENT Runtime
 )
 
-install(FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/cutefish-polkit-agent/translations)
+install(FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/yoyo-polkit-agent/translations)

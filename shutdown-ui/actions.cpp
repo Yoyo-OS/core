@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CutefishOS Team.
+ * Copyright (C) 2021 YoyoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -23,9 +23,9 @@
 #include <QApplication>
 #include <QProcess>
 
-const static QString s_dbusName = "com.cutefish.Session";
+const static QString s_dbusName = "com.yoyo.Session";
 const static QString s_pathName = "/Session";
-const static QString s_interfaceName = "com.cutefish.Session";
+const static QString s_interfaceName = "com.yoyo.Session";
 
 Actions::Actions(QObject *parent)
     : QObject(parent)
@@ -59,7 +59,7 @@ void Actions::reboot()
 
 void Actions::lockScreen()
 {
-    QProcess::startDetached("cutefish-screenlocker", QStringList());
+    QProcess::startDetached("yoyo-screenlocker", QStringList());
     qApp->exit(0);
 }
 

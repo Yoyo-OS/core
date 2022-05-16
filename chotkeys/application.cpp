@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CutefishOS Team.
+ * Copyright (C) 2021 YoyoOS Team.
  *
  * Author:     Reion Wong <aj@cutefishos.com>
  *
@@ -43,21 +43,21 @@ void Application::setupShortcuts()
 void Application::onPressed(QKeySequence keySeq)
 {
     if (keySeq.toString() == "Ctrl+Alt+Del") {
-        QProcess::startDetached("cutefish-shutdown", QStringList());
+        QProcess::startDetached("yoyo-shutdown", QStringList());
     }
 
     if (keySeq.toString() == "Meta+L") {
-        QProcess::startDetached("cutefish-screenlocker", QStringList());
+        QProcess::startDetached("yoyo-screenlocker", QStringList());
     }
 
     if (keySeq.toString() == "Ctrl+Alt+A") {
-        QProcess::startDetached("cutefish-screenshot", QStringList());
+        QProcess::startDetached("yoyo-screenshot", QStringList());
     }
 }
 
 void Application::onReleased(QKeySequence keySeq)
 {
     if (keySeq == QKeySequence(Qt::Key_Super_L)) {
-        QProcess::startDetached("cutefish-launcher", QStringList());
+        QProcess::startDetached("yoyo-launcher", QStringList());
     }
 }

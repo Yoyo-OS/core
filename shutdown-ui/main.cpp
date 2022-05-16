@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CutefishOS Team.
+ * Copyright (C) 2021 YoyoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
-    if (!QDBusConnection::sessionBus().registerService("com.cutefish.ShutdownUI")) {
+    if (!QDBusConnection::sessionBus().registerService("com.yoyo.ShutdownUI")) {
         return -1;
     }
 
@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 
     // Translations
     QLocale locale;
-    QString qmFilePath = QString("%1/%2.qm").arg("/usr/share/cutefish-shutdown/translations/").arg(locale.name());
+    QString qmFilePath = QString("%1/%2.qm").arg("/usr/share/yoyo-shutdown/translations/").arg(locale.name());
     if (QFile::exists(qmFilePath)) {
         QTranslator *translator = new QTranslator(QGuiApplication::instance());
         if (translator->load(qmFilePath)) {

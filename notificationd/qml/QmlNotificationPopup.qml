@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CutefishOS Team.
+ * Copyright (C) 2021 YoyoOS Team.
  *
  * Author:     Reion Wong <reion@cutefishos.com>
  *
@@ -23,7 +23,7 @@ import QtQuick.Layouts 1.12
 import QtQuick.Window 2.12
 import QtGraphicalEffects 1.0
 import FishUI 1.0 as FishUI
-import Cutefish.Notification 1.0
+import Yoyo.Notification 1.0
 
 NotificationPopup {
     id: control

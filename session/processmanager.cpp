@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CutefishOS Team.
+ * Copyright (C) 2021 YoyoOS Team.
  *
  * Author:     revenmartin <revenmartin@gmail.com>
  *
@@ -73,7 +73,7 @@ void ProcessManager::logout()
                              QDBusConnection::sessionBus());
 
     if (kwinIface.isValid()) {
-        kwinIface.call("aboutToSaveSession", "cutefish");
+        kwinIface.call("aboutToSaveSession", "yoyo");
         kwinIface.call("setState", uint(2)); // Quit
     }
 
@@ -109,28 +109,28 @@ void ProcessManager::startWindowManager()
 
 void ProcessManager::startDesktopProcess()
 {
-    // When the cutefish-settings-daemon theme module is loaded, start the desktop.
+    // When the yoyo-settings-daemon theme module is loaded, start the desktop.
     // In the way, there will be no problem that desktop and launcher can't get wallpaper.
 
     QList<QPair<QString, QStringList>> list;
     // Desktop components
-    list << qMakePair(QString("cutefish-notificationd"), QStringList());
-    list << qMakePair(QString("cutefish-statusbar"), QStringList());
-    list << qMakePair(QString("cutefish-dock"), QStringList());
-    list << qMakePair(QString("cutefish-filemanager"), QStringList("--desktop"));
-    list << qMakePair(QString("cutefish-launcher"), QStringList());
-    list << qMakePair(QString("cutefish-powerman"), QStringList());
-    list << qMakePair(QString("cutefish-clipboard"), QStringList());
+    list << qMakePair(QString("yoyo-notificationd"), QStringList());
+    list << qMakePair(QString("yoyo-statusbar"), QStringList());
+    list << qMakePair(QString("yoyo-dock"), QStringList());
+    list << qMakePair(QString("yoyo-filemanager"), QStringList("--desktop"));
+    list << qMakePair(QString("yoyo-launcher"), QStringList());
+    list << qMakePair(QString("yoyo-powerman"), QStringList());
+    list << qMakePair(QString("yoyo-clipboard"), QStringList());
 
-    // For CutefishOS.
-    if (QFile("/usr/bin/cutefish-welcome").exists() &&
+    // For YoyoOS.
+    if (QFile("/usr/bin/yoyo-welcome").exists() &&
             !QFile("/run/live/medium/live/filesystem.squashfs").exists()) {
-        QSettings settings("cutefishos", "login");
+        QSettings settings("yoyoos", "login");
 
         if (!settings.value("Finished", false).toBool()) {
-            list << qMakePair(QString("/usr/bin/cutefish-welcome"), QStringList());
+            list << qMakePair(QString("/usr/bin/yoyo-welcome"), QStringList());
         } else {
-            list << qMakePair(QString("/usr/bin/cutefish-welcome"), QStringList() << "-d");
+            list << qMakePair(QString("/usr/bin/yoyo-welcome"), QStringList() << "-d");
         }
     }
 
@@ -159,9 +159,9 @@ void ProcessManager::startDesktopProcess()
 void ProcessManager::startDaemonProcess()
 {
     QList<QPair<QString, QStringList>> list;
-    list << qMakePair(QString("cutefish-settings-daemon"), QStringList());
-    list << qMakePair(QString("cutefish-xembedsniproxy"), QStringList());
-    list << qMakePair(QString("cutefish-gmenuproxy"), QStringList());
+    list << qMakePair(QString("yoyo-settings-daemon"), QStringList());
+    list << qMakePair(QString("yoyo-xembedsniproxy"), QStringList());
+    list << qMakePair(QString("yoyo-gmenuproxy"), QStringList());
     list << qMakePair(QString("chotkeys"), QStringList());
 
     for (QPair<QString, QStringList> pair : list) {

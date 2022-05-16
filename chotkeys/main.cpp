@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 CutefishOS Team.
+ * Copyright (C) 2021 YoyoOS Team.
  *
  * Author:     Reion Wong <aj@cutefishos.com>
  *
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     a.setQuitOnLastWindowClosed(true);
 
-//    if (!QDBusConnection::sessionBus().registerService("com.cutefish.Chotkeys")) {
+//    if (!QDBusConnection::sessionBus().registerService("com.yoyo.Chotkeys")) {
 //        return -1;
 //    }
 

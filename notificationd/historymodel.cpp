@@ -1,7 +1,7 @@
 /*
- * Copyright (C) 2021 CutefishOS Team.
+ * Copyright (C) 2021 YoyoOS Team.
  *
- * Author:     Reion Wong <reion@cutefishos.com>
+ * Author:     Reion Wong <reion@yoyoos.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -132,7 +132,7 @@ void HistoryModel::clearAll()
 
 void HistoryModel::save()
 {
-    QSettings settings(QSettings::UserScope, "cutefishos", "notifications");
+    QSettings settings(QSettings::UserScope, "yoyoos", "notifications");
     settings.clear();
 
     QByteArray datas;
@@ -145,7 +145,7 @@ void HistoryModel::save()
 
 void HistoryModel::initDatas()
 {
-    QSettings settings(QSettings::UserScope, "cutefishos", "notifications");
+    QSettings settings(QSettings::UserScope, "yoyoos", "notifications");
     QByteArray listByteArray = settings.value("datas").toByteArray();
     QDataStream in(&listByteArray, QIODevice::ReadOnly);
     in >> m_notifications;

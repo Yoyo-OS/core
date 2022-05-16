@@ -31,9 +31,9 @@
 
 DimDisplayAction::DimDisplayAction(QObject *parent)
     : Action(parent)
-    , m_iface("com.cutefish.Settings",
+    , m_iface("com.yoyo.Settings",
               "/Brightness",
-              "com.cutefish.Brightness", QDBusConnection::sessionBus())
+              "com.yoyo.Brightness", QDBusConnection::sessionBus())
 {
     if (QX11Info::isPlatformX11()) {
         // Disable a default timeout, if any
@@ -73,9 +73,9 @@ void DimDisplayAction::onIdleTimeout(int msec)
 
         // Sleep
         if (m_sleep) {
-            QDBusInterface iface("com.cutefish.Session",
+            QDBusInterface iface("com.yoyo.Session",
                                  "/Session",
-                                 "com.cutefish.Session", QDBusConnection::sessionBus());
+                                 "com.yoyo.Session", QDBusConnection::sessionBus());
 
             if (iface.isValid()) {
                 iface.call("suspend");
@@ -83,7 +83,7 @@ void DimDisplayAction::onIdleTimeout(int msec)
         }
 
         if (m_lock) {
-            QProcess::startDetached("cutefish-screenlocker", QStringList());
+            QProcess::startDetached("yoyo-screenlocker", QStringList());
         }
 
     } else if (sec == (m_dimOnIdleTime * 3 / 4)) {

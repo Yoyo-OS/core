@@ -29,11 +29,11 @@ set(GMENU_DBUSMENU_PROXY_SRCS
 
 # qt_add_dbus_adaptor(GMENU_DBUSMENU_PROXY_SRCS ./com.canonical.dbusmenu.xml window.h Window)
 
-add_executable(cutefish-gmenuproxy ${GMENU_DBUSMENU_PROXY_SRCS})
+add_executable(yoyo-gmenuproxy ${GMENU_DBUSMENU_PROXY_SRCS})
 
 set_package_properties(XCB PROPERTIES TYPE REQUIRED)
 
-target_link_libraries(cutefish-gmenuproxy
+target_link_libraries(yoyo-gmenuproxy
     Qt5::Core
     Qt5::X11Extras
     Qt5::DBus
@@ -44,10 +44,10 @@ target_link_libraries(cutefish-gmenuproxy
 )
 
 configure_file(
-    cutefish-gmenuproxy.service.in
-    cutefish-gmenuproxy.service
+    yoyo-gmenuproxy.service.in
+    yoyo-gmenuproxy.service
     @ONLY
 )
 
-install(TARGETS cutefish-gmenuproxy DESTINATION ${CMAKE_INSTALL_BINDIR})
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/cutefish-gmenuproxy.service DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/systemd/user/)
+install(TARGETS yoyo-gmenuproxy DESTINATION ${CMAKE_INSTALL_BINDIR})
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/yoyo-gmenuproxy.service DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/systemd/user/)

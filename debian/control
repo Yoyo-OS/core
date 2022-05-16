@@ -1,7 +1,7 @@
-Source: cutefish-core
+Source: yoyo-core
 Section: devel
 Priority: optional
-Maintainer: CutefishOS <cutefishos@foxmail.com>
+Maintainer: YoyoOS <yoyoos@foxmail.com>
 Build-Depends: cmake,
                debhelper (>= 9),
                extra-cmake-modules,
@@ -41,9 +41,9 @@ Build-Depends: cmake,
                qttools5-dev,
                qttools5-dev-tools
 Standards-Version: 4.5.0
-Homepage: https://github.com/cutefishos/core
+Homepage: https://github.com/yoyoos/core
 
-Package: cutefish-core
+Package: yoyo-core
 Architecture: any
 Depends: accountsservice,
          qml-module-qtquick-controls2,
@@ -58,4 +58,4 @@ Depends: accountsservice,
          appmenu-gtk3-module,
          ${misc:Depends},
          ${shlibs:Depends}
-Description: CutefishOS System Components
+Description: YoyoOS System Components

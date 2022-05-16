@@ -17,14 +17,14 @@ set(SRCS main.cpp
 # for Ubuntu
 # qt_add_dbus_adaptor(SRCS org.freedesktop.Notifications.xml notificationserver.h NotificationServer)
 
-qt5_add_dbus_adaptor(DBUS_SOURCES com.cutefish.Notification.xml application.h Application)
+qt5_add_dbus_adaptor(DBUS_SOURCES com.yoyo.Notification.xml application.h Application)
 set_source_files_properties(${DBUS_SOURCES} PROPERTIES SKIP_AUTOGEN ON)
 
 find_package(KF5WindowSystem)
 
-add_executable(cutefish-notificationd ${SRCS} ${DBUS_SOURCES})
+add_executable(yoyo-notificationd ${SRCS} ${DBUS_SOURCES})
 
-target_link_libraries(cutefish-notificationd
+target_link_libraries(yoyo-notificationd
     Qt5::Core
     Qt5::DBus
     Qt5::Quick
@@ -32,7 +32,7 @@ target_link_libraries(cutefish-notificationd
     KF5::WindowSystem
 )
 
-install(TARGETS cutefish-notificationd
+install(TARGETS yoyo-notificationd
     DESTINATION /usr/bin
     COMPONENT Runtime
 )
@@ -40,6 +40,6 @@ install(TARGETS cutefish-notificationd
 file(GLOB TS_FILES translations/*.ts)
 qt5_create_translation(QM_FILES ${TS_FILES})
 add_custom_target(notificationd_translations DEPENDS ${QM_FILES} SOURCES ${TS_FILES})
-add_dependencies(cutefish-notificationd notificationd_translations)
+add_dependencies(yoyo-notificationd notificationd_translations)
 
-install(FILES ${QM_FILES} DESTINATION /usr/share/cutefish-notificationd/translations)
+install(FILES ${QM_FILES} DESTINATION /usr/share/yoyo-notificationd/translations)

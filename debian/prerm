@@ -18,7 +18,7 @@ set -e
 
 case "$1" in
     remove)
-        update-alternatives --remove x-session-manager /usr/bin/cutefish-session
+        update-alternatives --remove x-session-manager /usr/bin/yoyo-session
     ;;
 
     upgrade|deconfigure)

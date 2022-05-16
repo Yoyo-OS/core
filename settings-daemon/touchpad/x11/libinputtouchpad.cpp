@@ -146,7 +146,7 @@ Qt::MouseButtons maskBtns(Display *display, XIButtonClassInfo *buttonInfo)
 LibinputTouchpad::LibinputTouchpad(Display *display, int deviceId)
     : LibinputCommon()
     , XlibTouchpad(display, deviceId)
-    , m_config("cutefishos", "touchpadxlibinputrc")
+    , m_config("yoyoos", "touchpadxlibinputrc")
 {
     loadSupportedProperties(libinputProperties);
 
