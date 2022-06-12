@@ -117,22 +117,22 @@ void ProcessManager::startDesktopProcess()
     list << qMakePair(QString("yoyo-notificationd"), QStringList());
     list << qMakePair(QString("yoyo-statusbar"), QStringList());
     list << qMakePair(QString("yoyo-dock"), QStringList());
-    list << qMakePair(QString("yoyo-filemanager"), QStringList("--desktop"));
+    list << qMakePair(QString("XDG_CURRENT_DESKTOP=Deepin dde-desktop"), QStringList());
     list << qMakePair(QString("yoyo-launcher"), QStringList());
     list << qMakePair(QString("yoyo-powerman"), QStringList());
     list << qMakePair(QString("yoyo-clipboard"), QStringList());
 
     // For YoyoOS.
-    if (QFile("/usr/bin/yoyo-welcome").exists() &&
-            !QFile("/run/live/medium/live/filesystem.squashfs").exists()) {
-        QSettings settings("yoyoos", "login");
-
-        if (!settings.value("Finished", false).toBool()) {
-            list << qMakePair(QString("/usr/bin/yoyo-welcome"), QStringList());
-        } else {
-            list << qMakePair(QString("/usr/bin/yoyo-welcome"), QStringList() << "-d");
-        }
-    }
+//    if (QFile("/usr/bin/yoyo-welcome").exists() &&
+//            !QFile("/run/live/medium/live/filesystem.squashfs").exists()) {
+//        QSettings settings("yoyoos", "login");
+//
+//        if (!settings.value("Finished", false).toBool()) {
+//            list << qMakePair(QString("/usr/bin/yoyo-welcome"), QStringList());
+//        } else {
+//            list << qMakePair(QString("/usr/bin/yoyo-welcome"), QStringList() << "-d");
+//        }
+//    }
 
     for (QPair<QString, QStringList> pair : list) {
         QProcess *process = new QProcess;
