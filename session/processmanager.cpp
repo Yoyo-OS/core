@@ -117,7 +117,7 @@ void ProcessManager::startDesktopProcess()
     list << qMakePair(QString("yoyo-notificationd"), QStringList());
     list << qMakePair(QString("yoyo-statusbar"), QStringList());
     list << qMakePair(QString("yoyo-dock"), QStringList());
-    list << qMakePair(QString("dde-desktop"), QStringList());
+    list << qMakePair(QString("yoyo-desktop"), QStringList());
     list << qMakePair(QString("yoyo-launcher"), QStringList());
     list << qMakePair(QString("yoyo-powerman"), QStringList());
     list << qMakePair(QString("yoyo-clipboard"), QStringList());
