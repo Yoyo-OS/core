@@ -140,6 +140,7 @@ void ThemeManager::setDarkModeDimsWallpaer(bool value)
         return;
 
     m_darkModeDimsWallpaer = value;
+    m_settings->setValue("DarkModeDimsWallpaer", m_darkModeDimsWallpaer);
 
     emit darkModeDimsWallpaerChanged();
 }
@@ -155,8 +156,6 @@ void ThemeManager::setBackgroundVisible(bool value)
         return;
 
     m_backgroundVisible = value;
-    m_settings->setValue("BackgroundVisible", m_backgroundVisible);
-
     emit backgroundVisibleChanged();
 }
 
