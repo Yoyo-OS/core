@@ -8,7 +8,7 @@
         <arg name="darkModeDimsWallpaer" type="b" direction="in"/>
     </method>
     <method name="setBackgroundVisible">
-        <arg name="darkModeDimsWallpaer" type="b" direction="in"/>
+        <arg name="BackgroundVisible" type="b" direction="in"/>
     </method>
     <method name="setSystemFont">
         <arg name="fontFamily" type="s" direction="in"/>
