@@ -163,7 +163,6 @@ void ProcessManager::startDaemonProcess()
     list << qMakePair(QString("yoyo-digitalwellbeing-daemon"), QStringList());
     list << qMakePair(QString("yoyo-xembedsniproxy"), QStringList());
     list << qMakePair(QString("yoyo-gmenuproxy"), QStringList());
-    list << qMakePair(QString("yoyo-getfastmirror"),QStringList());
     list << qMakePair(QString("yoyo-permission-surveillance"),QStringList());
     //list << qMakePair(QString("chotkeys"), QStringList());
 
