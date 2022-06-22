@@ -19,21 +19,13 @@
 
 #include <QApplication>
 #include <QDBusConnection>
+#include <QDebug>
 #include "application.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     a.setQuitOnLastWindowClosed(true);
-
-//    if (!QDBusConnection::sessionBus().registerService("com.yoyo.Chotkeys")) {
-//        return -1;
-//    }
-
-//    if (!QDBusConnection::sessionBus().registerObject("/Chotkeys", &a)) {
-//        return -1;
-//    }
-
     Application app;
     return a.exec();
 }

@@ -5,14 +5,15 @@ find_package(X11)
 set(PROJECT_SOURCES
     main.cpp
     application.cpp
-    hotkeys.cpp
+    QHotkey/qhotkey.cpp
+    QHotkey/qhotkey_x11.cpp
 )
 
-add_executable(chotkeys
+add_executable(yoyo-chotkeys
     ${PROJECT_SOURCES}
 )
 
-target_link_libraries(chotkeys
+target_link_libraries(yoyo-chotkeys
     PRIVATE
     Qt5::Core
     Qt5::Widgets
@@ -23,4 +24,4 @@ target_link_libraries(chotkeys
     XCB::KEYSYMS
 )
 
-install(TARGETS chotkeys RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+install(TARGETS yoyo-chotkeys RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
