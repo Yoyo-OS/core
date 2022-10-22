@@ -1,3 +1,9 @@
+yoyo-core (0.9-2) UNRELEASED; urgency=high
+
+  * Initial release (YoyoOS)  <admin@yzzi.icu>
+
+ -- YoyoOS Packaging Team <support@yzzi.icu>  Sat, 22 Oct 2022 19:36:02 +0800
+
 yoyo-core (0.9-1) UNRELEASED; urgency=high
 
   * Initial release (YoyoOS)  <yoyoos@foxmail.com>

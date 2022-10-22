@@ -164,7 +164,7 @@ void ProcessManager::startDaemonProcess()
     list << qMakePair(QString("yoyo-xembedsniproxy"), QStringList());
     list << qMakePair(QString("yoyo-gmenuproxy"), QStringList());
     list << qMakePair(QString("yoyo-permission-surveillance"),QStringList());
-    list << qMakePair(QString("yoyo-chotkeys"), QStringList());
+    list << qMakePair(QString("yoyo-sxhkd"), QStringList());
 
     for (QPair<QString, QStringList> pair : list) {
         QProcess *process = new QProcess;
