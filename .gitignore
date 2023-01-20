@@ -52,4 +52,8 @@ compile_commands.json
 *creator.user*
 
 build/*
-.vscode/*
+.vscode/
+debian/.debhelper
+debian/files
+debian/yoyo-core*
+obj-x86_64*
