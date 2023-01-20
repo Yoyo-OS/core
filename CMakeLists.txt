@@ -33,5 +33,6 @@ add_subdirectory(gmenuproxy)
 add_subdirectory(notificationd)
 add_subdirectory(sddm-helper)
 add_subdirectory(clipboard)
+add_subdirectory(chotkeys)
 
 install(FILES yoyo DESTINATION /etc/ COMPONENT Runtime)

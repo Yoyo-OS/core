@@ -121,7 +121,8 @@ void ProcessManager::startDesktopProcess()
     list << qMakePair(QString("yoyo-launcher"), QStringList());
     list << qMakePair(QString("yoyo-powerman"), QStringList());
     list << qMakePair(QString("yoyo-clipboard"), QStringList());
-
+    list << qMakePair(QString("yoyo-chotkeys"), QStringList());
+    
     // For YoyoOS.
 //    if (QFile("/usr/bin/yoyo-welcome").exists() &&
 //            !QFile("/run/live/medium/live/filesystem.squashfs").exists()) {
