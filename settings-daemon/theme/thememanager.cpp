@@ -26,6 +26,7 @@
 #include <QProcess>
 #include <QFile>
 #include <QDebug>
+#include <QProcess>
 
 static const QByteArray s_systemFontName = QByteArrayLiteral("Font");
 static const QByteArray s_systemFixedFontName = QByteArrayLiteral("FixedFont");
@@ -69,6 +70,14 @@ ThemeManager::ThemeManager(QObject *parent)
     m_isDarkMode = m_settings->value("DarkMode", false).toBool();
     m_darkModeDimsWallpaer = m_settings->value("DarkModeDimsWallpaer", false).toBool();
     m_backgroundVisible = true;
+    m_Color0 = m_settings->value("Color0", "#3385FF").toString();
+    m_Color1 = m_settings->value("Color1", "#FF5C6D").toString();
+    m_Color2 = m_settings->value("Color2", "#35BF56").toString();
+    m_Color3 = m_settings->value("Color3", "#8266FF").toString();
+    m_Color4 = m_settings->value("Color4", "#CA64AC").toString();
+    m_Color5 = m_settings->value("Color5", "#FEA042").toString();
+    m_Color6 = m_settings->value("Color6", "#4F596B").toString();
+
     m_wallpaperPath = m_settings->value("Wallpaper", "/usr/share/backgrounds/yoyoos/default.jpg").toString();
     m_accentColor = m_settings->value("AccentColor", 0).toInt();
     m_backgroundType = m_settings->value("BackgroundType", 0).toInt();
@@ -299,7 +308,111 @@ void ThemeManager::setWallpaper(const QString &path)
     if (m_wallpaperPath != path) {
         m_wallpaperPath = path;
         m_settings->setValue("Wallpaper", path);
+
+        //启动莫奈取色
+        QProcess *proc = new QProcess(this);
+        connect(proc, static_cast<void (QProcess::*)(int)>(&QProcess::finished), proc, &QProcess::deleteLater);
+        proc->startDetached("/usr/bin/yoyo-wallpaper-color-pick");
+
         emit wallpaperChanged(path);
+    }
+}
+
+QString ThemeManager::color0() const
+{
+    return m_Color0;
+}
+
+void ThemeManager::setColor0(const QString &color)
+{
+    if (m_Color0 != color) {
+        m_Color0 = color;
+        m_settings->setValue("Color0", color);
+        emit colorChanged();
+    }
+}
+
+QString ThemeManager::color1() const
+{
+    return m_Color1;
+}
+
+void ThemeManager::setColor1(const QString &color)
+{
+    if (m_Color1 != color) {
+        m_Color1 = color;
+        m_settings->setValue("Color1", color);
+        emit colorChanged();
+    }
+}
+
+QString ThemeManager::color2() const
+{
+    return m_Color2;
+}
+
+void ThemeManager::setColor2(const QString &color)
+{
+    if (m_Color2 != color) {
+        m_Color2 = color;
+        m_settings->setValue("Color2", color);
+        emit colorChanged();
+    }
+}
+
+QString ThemeManager::color3() const
+{
+    return m_Color3;
+}
+
+void ThemeManager::setColor3(const QString &color)
+{
+    if (m_Color3 != color) {
+        m_Color3 = color;
+        m_settings->setValue("Color3", color);
+        emit colorChanged();
+    }
+}
+
+QString ThemeManager::color4() const
+{
+    return m_Color4;
+}
+
+void ThemeManager::setColor4(const QString &color)
+{
+    if (m_Color4 != color) {
+        m_Color4 = color;
+        m_settings->setValue("Color4", color);
+        emit colorChanged();
+    }
+}
+
+QString ThemeManager::color5() const
+{
+    return m_Color5;
+}
+
+void ThemeManager::setColor5(const QString &color)
+{
+    if (m_Color5 != color) {
+        m_Color5 = color;
+        m_settings->setValue("Color0", color);
+        emit colorChanged();
+    }
+}
+
+QString ThemeManager::color6() const
+{
+    return m_Color6;
+}
+
+void ThemeManager::setColor6(const QString &color)
+{
+    if (m_Color6 != color) {
+        m_Color6 = color;
+        m_settings->setValue("Color0", color);
+        emit colorChanged();
     }
 }
 

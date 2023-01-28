@@ -47,6 +47,9 @@ Homepage: https://github.com/yoyoos/core
 Package: yoyo-core
 Architecture: any
 Depends: accountsservice,
+         python3-dbus,
+         python3-pillow,
+         python3-regex,
          qml-module-qtquick-controls2,
          qml-module-qtquick2,
          qml-module-qtquick-layouts,

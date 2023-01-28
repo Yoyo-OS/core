@@ -37,6 +37,13 @@ class ThemeManager : public QObject
     Q_PROPERTY(int accentColor READ accentColor WRITE setAccentColor NOTIFY accentColorChanged)
     Q_PROPERTY(int backgroundType READ backgroundType WRITE setBackgroundType NOTIFY backgroundTypeChanged)
     Q_PROPERTY(QString backgroundColor READ backgroundColor WRITE setBackgroundColor NOTIFY backgroundColorChanged)
+    Q_PROPERTY(QString color0 READ color0 WRITE setColor0 NOTIFY colorChanged)
+    Q_PROPERTY(QString color1 READ color1 WRITE setColor1 NOTIFY colorChanged)
+    Q_PROPERTY(QString color2 READ color2 WRITE setColor2 NOTIFY colorChanged)
+    Q_PROPERTY(QString color3 READ color3 WRITE setColor3 NOTIFY colorChanged)
+    Q_PROPERTY(QString color4 READ color4 WRITE setColor4 NOTIFY colorChanged)
+    Q_PROPERTY(QString color5 READ color5 WRITE setColor5 NOTIFY colorChanged)
+    Q_PROPERTY(QString color6 READ color6 WRITE setColor6 NOTIFY colorChanged)
     Q_PROPERTY(QString cursorTheme READ cursorTheme WRITE setCursorTheme NOTIFY cursorThemeChanged)
     Q_PROPERTY(int cursorSize READ cursorSize WRITE setCursorSize NOTIFY cursorSizeChanged)
     Q_PROPERTY(QString iconTheme READ iconTheme WRITE setIconTheme NOTIFY iconThemeChanged)
@@ -55,6 +62,20 @@ public:
     bool backgroundVisible() const;
     void setBackgroundVisible(bool value);
 
+    QString color0() const;
+    void setColor0(const QString &color);
+    QString color1() const;
+    void setColor1(const QString &color);
+    QString color2() const;
+    void setColor2(const QString &color);
+    QString color3() const;
+    void setColor3(const QString &color);
+    QString color4() const;
+    void setColor4(const QString &color);
+    QString color5() const;
+    void setColor5(const QString &color);
+    QString color6() const;
+    void setColor6(const QString &color);
     QString systemFont();
     void setSystemFont(const QString &fontFamily);
 
@@ -98,6 +119,7 @@ public:
 signals:
     void darkModeChanged(bool darkMode);
     void wallpaperChanged(QString path);
+    void colorChanged();
     void darkModeDimsWallpaerChanged();
     void backgroundVisibleChanged();
     void accentColorChanged(int accentColor);
@@ -117,6 +139,13 @@ private:
     bool m_backgroundVisible;
     QString m_wallpaperPath;
     int m_backgroundType;
+    QString m_Color0;
+    QString m_Color1;
+    QString m_Color2;
+    QString m_Color3;
+    QString m_Color4;
+    QString m_Color5;
+    QString m_Color6;
     QString m_backgroundColor;
     int m_accentColor;
 

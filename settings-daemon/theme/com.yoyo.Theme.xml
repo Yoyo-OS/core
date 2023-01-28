@@ -25,6 +25,27 @@
     <method name="setWallpaper">
         <arg name="path" type="s" direction="in"/>
     </method>
+    <method name="setColor0">
+        <arg name="color" type="s" direction="in"/>
+    </method>
+    <method name="setColor1">
+        <arg name="color" type="s" direction="in"/>
+    </method>
+    <method name="setColor2">
+        <arg name="color" type="s" direction="in"/>
+    </method>
+    <method name="setColor3">
+        <arg name="color" type="s" direction="in"/>
+    </method>
+    <method name="setColor4">
+        <arg name="color" type="s" direction="in"/>
+    </method>
+    <method name="setColor5">
+        <arg name="color" type="s" direction="in"/>
+    </method>
+    <method name="setColor6">
+        <arg name="color" type="s" direction="in"/>
+    </method>
     <method name="setAccentColor">
         <arg name="accentColor" type="i" direction="in"/>
     </method>
@@ -55,6 +76,13 @@
     <property name="systemFontPointSize" type="d" access="read"/>
     <property name="devicePixelRatio" type="d" access="read"/>
     <property name="wallpaper" type="s" access="read"/>
+    <property name="color0" type="s" access="read"/>
+    <property name="color1" type="s" access="read"/>
+    <property name="color2" type="s" access="read"/>
+    <property name="color3" type="s" access="read"/>
+    <property name="color4" type="s" access="read"/>
+    <property name="color5" type="s" access="read"/>
+    <property name="color6" type="s" access="read"/>
     <property name="accentColor" type="i" access="read"/>
     <property name="backgroundType" type="i" access="read"/>
     <property name="backgroundColor" type="s" access="read"/>
@@ -67,6 +95,8 @@
     </signal>
     <signal name="wallpaperChanged">
         <arg type="s"/>
+    </signal>
+    <signal name="colorChanged">
     </signal>
     <signal name="darkModeDimsWallpaerChanged">
     </signal>

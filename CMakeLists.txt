@@ -36,3 +36,4 @@ add_subdirectory(clipboard)
 add_subdirectory(chotkeys)
 
 install(FILES yoyo DESTINATION /etc/ COMPONENT Runtime)
+install(FILES wallpaper-color-pick/yoyo-wallpaper-color-pick DESTINATION "/usr/bin/")
