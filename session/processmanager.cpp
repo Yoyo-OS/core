@@ -114,14 +114,11 @@ void ProcessManager::startDesktopProcess()
 
     QList<QPair<QString, QStringList>> list;
     // Desktop components
-    list << qMakePair(QString("yoyo-notificationd"), QStringList());
-    list << qMakePair(QString("yoyo-statusbar"), QStringList());
     list << qMakePair(QString("yoyo-dock"), QStringList());
     list << qMakePair(QString("yoyo-desktop"), QStringList());
     list << qMakePair(QString("yoyo-launcher"), QStringList());
     list << qMakePair(QString("yoyo-powerman"), QStringList());
-    list << qMakePair(QString("yoyo-clipboard"), QStringList());
-    list << qMakePair(QString("yoyo-chotkeys"), QStringList());
+    list << qMakePair(QString("yoyo-wallpaper-color-pick"), QStringList());
     
     // For YoyoOS.
 //    if (QFile("/usr/bin/yoyo-welcome").exists() &&
@@ -161,11 +158,12 @@ void ProcessManager::startDaemonProcess()
 {
     QList<QPair<QString, QStringList>> list;
     list << qMakePair(QString("yoyo-settings-daemon"), QStringList());
-    list << qMakePair(QString("yoyo-digitalwellbeing-daemon"), QStringList());
     list << qMakePair(QString("yoyo-xembedsniproxy"), QStringList());
     list << qMakePair(QString("yoyo-gmenuproxy"), QStringList());
     list << qMakePair(QString("yoyo-permission-surveillance"),QStringList());
-    list << qMakePair(QString("yoyo-sxhkd"), QStringList());
+    list << qMakePair(QString("yoyo-clipboard"), QStringList());
+    list << qMakePair(QString("yoyo-chotkeys"), QStringList());
+    list << qMakePair(QString("yoyo-notificationd"), QStringList());
 
     for (QPair<QString, QStringList> pair : list) {
         QProcess *process = new QProcess;
