@@ -412,6 +412,33 @@ class PQueue(object):
     def map(self, f):
         return list(map(f, self.contents))
 
+def rgbToHex(r,g,b):
+    hex_r = hex(r)[2:].upper()
+    hex_g = hex(g)[2:].upper()
+    hex_b = hex(b)[2:].upper()
+
+    hex_r0 = hex_r.zfill(2)
+    hex_g0 = hex_g.zfill(2)
+    hex_b0 = hex_b.zfill(2)
+    hex_color = '#' + hex_r0 + hex_g0 + hex_b0
+    return hex_color
+
+def rgbToY(r,g,b):
+    yuv_y = 0.2990*r + 0.5870*g + 0.1140*b
+    return yuv_y
+
+def paletteSort(palette):
+    palette_y=[]
+    palette_rgb=palette
+    for color in palette:
+        palette_y.append(rgbToY(color[0],color[1],color[2]))
+    for i in range(len(palette_y)):
+        for j in range(i+1,(len(palette_y))):
+            if palette_y[i]>palette_y[j]:
+                palette_y[i],palette_y[j]=palette_y[j],palette_y[i]
+                palette_rgb[i],palette_rgb[j]=palette_rgb[j],palette_rgb[i]
+    return palette_rgb
+
 if __name__ == "__main__":
     bus = dbus.SessionBus()
     proxy = bus.get_object('com.yoyo.Settings', 
@@ -422,16 +449,8 @@ if __name__ == "__main__":
 
     color_thief = ColorThief(wallpaper)
     palette = color_thief.get_palette(color_count=7,quality=6)
-
-    for color in palette:
-        hex_r = hex(color[0])[2:].upper()   #10进制转16进制，并去掉16进制前面的“0x”，再把得出的结果转为大写
-        hex_g = hex(color[1])[2:].upper()
-        hex_b = hex(color[2])[2:].upper()
-
-        hex_r0 = hex_r.zfill(2)   #位数不足2位时补“0”
-        hex_g0 = hex_g.zfill(2)
-        hex_b0 = hex_b.zfill(2)
-        hex_color = '#' + hex_r0 + hex_g0 + hex_b0
-        m = iface.get_dbus_method("setColor"+str(palette.index(color)) , dbus_interface=None)
-        m(hex_color)
-        print(hex_color)
+    palette_sort = paletteSort(palette)
+    for color in palette_sort:
+        m = iface.get_dbus_method("setColor"+str(palette_sort.index(color)) , dbus_interface=None)
+        m(rgbToHex(color[0],color[1],color[2]))
+        print(rgbToHex(color[0],color[1],color[2]))
